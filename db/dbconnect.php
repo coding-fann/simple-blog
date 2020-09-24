@@ -1,11 +1,11 @@
 <?php
 
-$dbname = 'blog';
+$dbhost = '127.0.0.1';
 $dbuser = 'root';
 $dbpass = 'adminpass';
-$dbhost = '127.0.0.1';
+$dbname = 'blog';
 
-    $conn = mysqli_connect($dbhost, $dbuser, $dbpass) or die("Unable to Connect to '$dbhost'");
+    $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname) or die("Unable to Connect to '$dbhost'");
 /* Connection to database */
 
 	/* Check connection */
