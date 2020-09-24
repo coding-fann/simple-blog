@@ -19,13 +19,14 @@ if(isset($_POST['submit'])) {
 	include("../db/dbconnect.php");
 
 	/* CHECK if same user or email exists or not ? */
-	$query="INSERT INTO posts_buffer (postTitle , postDesc , postTag , postAuthor)
-			VALUES ('$postTitle' , '$postDesc' , '$postTag' , '$postAuthor') ";
-	mysqli_query($conn , $query);
-
-	printf("Successfully posted your post\n");
-	header("location:posts.php");
-
+	$query="INSERT INTO posts_buffer (postTitle, postDesc, postTag, postAuthor)
+			VALUES ('$postTitle', '$postDesc', '$postTag', '$postAuthor')";
+    if (mysqli_query($conn , $query)) {
+        printf("Successfully posted your post\n");
+        header("location:posts.php");
+    } else {
+        printf("Failed to create new post!\n");
+    }
 }
 
 /* * * * * POST Form * * * * */
